@@ -191,8 +191,14 @@ class VimeoVideoPlayer extends StatelessWidget {
 
   /// Builds the iframe URL
   String _buildIframeUrl() {
-    return 'https://player.vimeo.com/video/1048645456?h=57021fbf87';
-       
+    return 'https://player.vimeo.com/video/$videoId'
+        'autoplay=$isAutoPlay'
+        '&loop=$isLooping'
+        '&muted=$isMuted'
+        '&title=$showTitle'
+        '&byline=$showByline'
+        '&controls=$showControls'
+        '&dnt=$enableDNT';
   }
 
   /// Manage vimeo player events received from the WebView
