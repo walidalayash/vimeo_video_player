@@ -117,6 +117,13 @@ class VimeoVideoPlayer extends StatelessWidget {
         mediaPlaybackRequiresUserGesture: false,
         allowsInlineMediaPlayback: true,
         useHybridComposition: true,
+        javaScriptEnabled: true, 
+        javaScriptCanOpenWindowsAutomatically: true,
+        allowUniversalAccessFromFileURLs: true, 
+        clearCache: true,
+        userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/537.36 (KHTML, like Gecko) Version/14.0 Mobile Safari/537.36",
+
+
       ),
       initialData: InAppWebViewInitialData(
         data: _buildHtmlContent(),
