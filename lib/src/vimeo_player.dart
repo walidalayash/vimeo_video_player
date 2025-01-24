@@ -117,7 +117,9 @@ class VimeoVideoPlayer extends StatelessWidget {
         mediaPlaybackRequiresUserGesture: false,
         allowsInlineMediaPlayback: true,
         useHybridComposition: true,
+        
       ),
+      
       initialData: InAppWebViewInitialData(
         data: _buildHtmlContent(),
         baseUrl: WebUri("https://player.vimeo.com"),
@@ -132,7 +134,14 @@ class VimeoVideoPlayer extends StatelessWidget {
       onWebViewCreated: onInAppWebViewCreated,
       onLoadStart: onInAppWebViewLoadStart,
       onLoadStop: onInAppWebViewLoadStop,
-      onReceivedError: onInAppWebViewReceivedError,
+      
+  onReceivedError: (controller, request, error) {
+    print("Error loading: ${error.description}");
+  },
+  onProgressChanged: (controller, progress) {
+    print("Progress: $progress%");
+  },
+      // onReceivedError: onInAppWebViewReceivedError,
     );
   }
 
@@ -167,15 +176,14 @@ class VimeoVideoPlayer extends StatelessWidget {
       <body>
         <div class="video-container">
           <iframe 
-  id="player"
-  src="https://player.vimeo.com/video/1048645456?h=57021fbf87"
-  frameborder="0"
-  allow="autoplay; fullscreen; picture-in-picture"
-  allowfullscreen 
-  webkitallowfullscreen 
-  mozallowfullscreen>
-</iframe>
-
+            id="player"
+            src="${_buildIframeUrl()}"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen 
+            webkitallowfullscreen 
+            mozallowfullscreen>
+          </iframe>
         </div>
         <script>
           const player = new Vimeo.Player('player');
