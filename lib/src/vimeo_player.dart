@@ -167,14 +167,15 @@ class VimeoVideoPlayer extends StatelessWidget {
       <body>
         <div class="video-container">
           <iframe 
-            id="player"
-            src="${_buildIframeUrl()}"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen 
-            webkitallowfullscreen 
-            mozallowfullscreen>
-          </iframe>
+  id="player"
+  src="https://player.vimeo.com/video/1048645456?h=57021fbf87"
+  frameborder="0"
+  allow="autoplay; fullscreen; picture-in-picture"
+  allowfullscreen 
+  webkitallowfullscreen 
+  mozallowfullscreen>
+</iframe>
+
         </div>
         <script>
           const player = new Vimeo.Player('player');
